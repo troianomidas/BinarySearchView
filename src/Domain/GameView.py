@@ -18,10 +18,12 @@ class BinarySearchVisualizer:
 
     def __init__(self):
         pygame.font.init()
-        self.small_font = pygame.font.SysFont("comicsan", 20)
-        self.medium_font = pygame.font.SysFont("comicsans", 30)
-        self.large_font = pygame.font.SysFont("comicsans", 70)
-        self.screen = pygame.display.set_mode((self.WINDOW_WIDTH, self.WINDOW_HEIGHT))
+
+        self.small_font = pygame.font.SysFont("arial", 20)
+        self.medium_font = pygame.font.SysFont("arial", 30)
+        self.large_font = pygame.font.SysFont("arial", 70)
+        self.screen = pygame.display.set_mode((self.WINDOW_WIDTH, self.WINDOW_HEIGHT,))
+
         pygame.display.set_caption("BINARY SEARCH VISUALIZER")
         
         self.array = [0] * self.ARRAY_SIZE
@@ -80,8 +82,8 @@ class BinarySearchVisualizer:
                 self.array_colors[right] = self.COLORS['default']
                 right = mid - 1
             
-            self.draw()  # Substituído refresh_display() por draw()
-        
+            self.draw()  # Change refresh_display() to draw()
+
         return False
 
     def handle_keypress(self, event):
@@ -109,7 +111,7 @@ class BinarySearchVisualizer:
 
     def _draw_interface(self):
         texts = [
-            (self.medium_font, "SEARCH: PRESS 'ENTER'", (20, 20)),
+            (self.medium_font, "SEARCH: PRESS 'ENTER'", (20, 10)),
             (self.medium_font, "NEW ARRAY: PRESS 'R'", (20, 40)),
             (self.small_font, f"ENTER NUMBER TO SEARCH: {self.search_key}", (600, 60)),
             (self.small_font, f"Running Time(sec): {int(time.time() - self.start_time)}", (600, 20))
