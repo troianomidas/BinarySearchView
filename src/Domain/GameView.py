@@ -65,7 +65,7 @@ class BinarySearchVisualizer:
         
         while left < right:
             self.array_colors[left] = self.array_colors[right] = self.COLORS['search']
-            self.refresh_display()
+            self.draw()  # Substituído refresh_display() por draw()
 
             mid = left + (right - left) // 2
 
@@ -79,9 +79,9 @@ class BinarySearchVisualizer:
             else:
                 self.array_colors[right] = self.COLORS['default']
                 right = mid - 1
-                
-            self.refresh_display()
             
+            self.draw()  # Substituído refresh_display() por draw()
+        
         return False
 
     def handle_keypress(self, event):
